@@ -1,0 +1,24 @@
+{
+  "name": "kimi-honcho",
+  "version": "0.1.0",
+  "description": "Persistent memory for Kimi Code CLI, powered by Honcho — native plugin with lifecycle hooks (no MCP)",
+  "type": "module",
+  "bin": {
+    "kimi-honcho": "bin/kimi-honcho.mjs"
+  },
+  "files": [
+    "kimi.plugin.json",
+    "SYSTEM.md",
+    "hooks/",
+    "skills/",
+    "commands/",
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["honcho", "kimi", "kimi-code", "memory", "plugin"],
+  "license": "MIT"
+}
