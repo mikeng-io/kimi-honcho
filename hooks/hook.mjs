@@ -236,7 +236,7 @@ async function verbPrompt(p) {
   if (!cfg || !cfg.enabled) return;
   const cwd = p.cwd || process.cwd();
   const key = p.session_id || sessionName(cfg, cwd, p.session_id);
-  const promptText = (p.prompt || textOf(p.input) || "").trim();
+  const promptText = (textOf(p.prompt) || textOf(p.input) || "").trim();
   mkdirSync(CACHE_DIR, { recursive: true });
   const marker = join(CACHE_DIR, `.injected-${fkey(key)}`);
 
