@@ -1,8 +1,10 @@
 # kimi-honcho
 
-Persistent memory for [Kimi Code CLI](https://www.kimi.com/code/docs/en/), powered by [Honcho](https://honcho.dev) from Plastic Labs.
+Persistent memory for [Kimi Code CLI](https://www.kimi.com/code/docs/en/), built on [Honcho](https://honcho.dev).
 
-A native Kimi Code CLI **plugin** — lifecycle hooks capture each session to Honcho and inject relevant context back at session start. No MCP server required. A sibling of [codex-honcho](https://github.com/plastic-labs/codex-honcho) and [claude-honcho](https://github.com/plastic-labs/claude-honcho), sharing the same `~/.honcho/config.json`.
+> **Unofficial community plugin** — a custom integration by [mikeng-io](https://github.com/mikeng-io), not affiliated with or endorsed by Plastic Labs (the makers of Honcho).
+
+A native Kimi Code CLI **plugin** — lifecycle hooks capture each session to Honcho and inject relevant context back at session start. No MCP server required. Modeled on the official [codex-honcho](https://github.com/plastic-labs/codex-honcho) and [claude-honcho](https://github.com/plastic-labs/claude-honcho) plugins, sharing the same `~/.honcho/config.json`.
 
 ## What You Get
 

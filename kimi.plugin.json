@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Persistent cross-session memory for Kimi Code CLI, powered by Honcho",
   "keywords": ["honcho", "memory", "persistent-memory", "kimi-code"],
+  "author": "mikeng-io",
   "license": "MIT",
   "homepage": "https://honcho.dev",
   "interface": {
