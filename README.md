@@ -32,18 +32,20 @@ honcho init   # uv tool install honcho-cli if you don't have the CLI
 
 ### Step 2: Seed config and install the plugin
 
-```
-node bin/kimi-honcho.mjs install     # or `npx kimi-honcho install` once published
-```
-
-This seeds `hosts.kimi` in `~/.honcho/config.json`, removes any legacy manual hook block, and prints the install line. Then, inside Kimi Code CLI:
+No git clone needed. Optionally seed `hosts.kimi` straight from GitHub (required only if you have no existing `~/.honcho/config.json`):
 
 ```
-/plugins install /path/to/kimi-honcho
+npx github:mikeng-io/kimi-honcho install
+```
+
+Then, inside Kimi Code CLI:
+
+```
+/plugins install https://github.com/mikeng-io/kimi-honcho
 /reload
 ```
 
-(From GitHub, once pushed: `/plugins install https://github.com/<owner>/kimi-honcho`.)
+(From a local checkout: `node bin/kimi-honcho.mjs install`, then `/plugins install /path/to/kimi-honcho`.)
 
 ### Step 3: Start a new session
 
@@ -72,6 +74,19 @@ All settings live in `~/.honcho/config.json`. Kimi-specific settings go under `h
 | `endpoint.baseUrl` | Honcho cloud | Self-hosted URL, with or without `/v3` |
 
 Environment overrides: `HONCHO_API_KEY`, `HONCHO_PEER_NAME`, `HONCHO_CONFIG_DIR`. An explicit `sessions[cwd]` mapping pins a directory to a session name.
+
+### Official Honcho cloud vs. self-hosted
+
+Setup is **per machine**, in `~/.honcho/config.json` — never in this repo. Both backends work:
+
+- **Official Honcho cloud** (default): `honcho init` with a key from [app.honcho.dev](https://app.honcho.dev). No endpoint config needed; the plugin defaults to `https://api.honcho.dev`.
+- **Self-hosted Honcho**: set `endpoint.baseUrl` (root or `hosts.kimi`) to your server, with or without `/v3`:
+
+  ```json
+  { "endpoint": { "baseUrl": "http://localhost:8000" } }
+  ```
+
+To merge memory with your other tools, also set the same `workspace` and `peerName` in each host block.
 
 ## How It Works
 
