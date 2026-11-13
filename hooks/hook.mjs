@@ -180,11 +180,13 @@ function renderContext(ctx, peerName, max = 8) {
   const parts = [];
   const rep = ctx.representation;
   if (typeof rep === "string" && rep.trim()) {
+    // Representation observations are chronological ascending on Honcho v3.6 —
+    // take the LAST lines (most recent facts), not the oldest.
     const lines = rep
       .split("\n")
       .map((l) => l.trim())
       .filter((l) => l && !l.startsWith("#"))
-      .slice(0, max)
+      .slice(-max)
       .map((l) => l.replace(/^[-*]\s*/, "").replace(/^\[.*?\]\s*/, ""));
     if (lines.length) parts.push(lines.map((l) => `- ${l}`).join("\n"));
   }
